@@ -16,6 +16,10 @@ steps:
     displayName: "Install Node.js"
 
   - script: |
+      npm cache clean --force
+      rm -rf node_modules
+      rm package--lock.json
+      npm run clean
       npm install
       npm run pretest
       npm run test
