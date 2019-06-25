@@ -16,8 +16,6 @@ steps:
     displayName: "Install Node.js"
 
   - script: |
-      rm -rf node_modules
       npm install
-      npm run pretest
       npm run test
     displayName: "npm install, run pretest, then test"
