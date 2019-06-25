@@ -17,5 +17,14 @@ steps:
 
   - script: |
       npm install
-      mocha
+      npm run test
     displayName: "npm install and run test"
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Build.BinariesDirectory)'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
+   
